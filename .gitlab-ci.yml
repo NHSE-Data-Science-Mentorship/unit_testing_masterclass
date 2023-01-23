@@ -1,0 +1,14 @@
+image:
+  name: python:latest
+
+stages:
+  - lint
+
+linting:
+  stage: lint
+  when: always
+  script:
+        - pip install flake8 black
+        - flake8 --max-line-length=79
+        - black learn_unit_testing/src/learn_unit_testing/ --check -l 79
+
